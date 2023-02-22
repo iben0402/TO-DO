@@ -88,3 +88,44 @@ nav > *:hover {
     transition: opacity 1s ease-in-out;
 }
 
+.contact {
+    display: flex;
+    justify-content:space-around;
+}
+
+.links {
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #647490;
+    border-radius: 10px;
+    width: 40%;
+    padding: 32px;
+    height: 100%;
+}
+
+.links > * {
+    transition: box-shadow 0.3s ease;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.links > *:hover {
+    box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.formDiv {
+    width: 40%;
+    background-color: #D2E3EE;
+    border-radius: 10px;
+    padding: 32px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.formDiv > form >* {
+    padding: 5px;
+    border-radius: 15px;
+}
+
