@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300&display=swap" rel="stylesheet">
-    <script src="todo.js"></script> 
+    <script src="addingTasks.js"></script> 
+    <script src="displayingTasks.js"></script> 
 </head>
-<body>
+<body onload="displayTasks()">
     <nav>
         <div class="logo"><a href="index.html">TO-DO</a></div>
         <div class="github"><a href="https://github.com/iben0402/TO-DO" target="_blank">Github</a></div>
@@ -22,6 +23,7 @@
     <div class="mainPage">
         <button class="buttonStyle" id="AddTask" onclick="CreateTask()">+ Add task</button>
         <div id="taskName"></div>
+        <div id="taskList"></div>
 
 
     </div>
