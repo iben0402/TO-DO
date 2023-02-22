@@ -68,4 +68,23 @@ function AddTask() {
         localStorage.setItem("Tasks", arrayString)
         console.log(arrayTasks);
     }
+    displayTasks();
+}
+
+
+function displayTasks() {
+    var arrayString = localStorage.getItem("Tasks");
+    var tasks = JSON.parse(arrayString);
+    console.log(tasks);
+    var taskPlace = document.getElementById("taskList");
+    
+    while(taskPlace.firstChild) {
+        taskPlace.removeChild(taskPlace.firstChild);
+    }
+
+    tasks.forEach(function(element) {
+        var paragraph = document.createElement("p");
+        paragraph.textContent = element;
+        taskPlace.appendChild(paragraph);
+    });
 }
