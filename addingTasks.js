@@ -85,6 +85,43 @@ function displayTasks() {
     tasks.forEach(function(element) {
         var paragraph = document.createElement("p");
         paragraph.textContent = element;
-        taskPlace.appendChild(paragraph);
+        paragraph.style.fontSize = "28px";
+
+        var buttonElement = document.createElement("button");
+        buttonElement.innerHTML = "✓";
+        buttonElement.setAttribute("id", element);
+        buttonElement.className = "buttonStyle";
+        buttonElement.onclick = deleteTask;
+
+        var taskHolder = document.createElement("div");
+        taskHolder.className="taskHolder";
+        taskHolder.style.display = "flex";
+        taskHolder.style.gap = "10px";
+        taskHolder.appendChild(buttonElement);
+        taskHolder.appendChild(paragraph);
+        taskPlace.appendChild(taskHolder);
     });
+}
+
+function deleteTask() {
+    var doneTask = this.getAttribute("id");
+    console.log(doneTask);
+    var stringList = localStorage.getItem("Tasks");
+    var list = JSON.parse(stringList);
+
+    var index = list.indexOf(doneTask);
+    if (index !== -1) {
+        list.splice(index, 1);
+    }
+
+    stringList = JSON.stringify(list);
+    localStorage.setItem("Tasks", stringList);
+    
+    var parentDiv = this.parentNode;
+    parentDiv.style.opacity = 0;
+
+    setTimeout(function() {
+        displayTasks();
+      }, 1000);
+
 }
